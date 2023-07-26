@@ -7,6 +7,7 @@ function AboutPage(props){
     let founded =props.shoes.find((x)=> x.id == id)
     //유저가 라우트 파라미터자리에 입력한거 가져옴
     const [time,setTime]=useState(true);
+    
     const[write,setWrite]=useState('');
 
     useEffect(()=>{
