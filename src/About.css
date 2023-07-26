@@ -1,0 +1,11 @@
+.timer{
+    background-color: yellow;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.warning{
+    background-color: red;
+}
