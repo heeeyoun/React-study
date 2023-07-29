@@ -40,7 +40,7 @@ function App() {
       
 
       <Routes>
-  <Route path="/" element={<FirstPage shoes={shoes} />} />
+  <Route path="/" element={<FirstPage shoes={shoes} setShoes={setShoes}/>} />
   <Route path="/events" element={<Event />}>
     <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
     <Route path="two" element={<div>생일기념 쿠폰받기</div>} />

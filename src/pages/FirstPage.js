@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 
 import data from '../data';
+import axios from 'axios';
 
-function FirstPage({shoes}) {
+function FirstPage() {
   const publicUrl = process.env.PUBLIC_URL;
   
+  let [shoes,setShoes] = useState(data);
 
-  return (
+//버튼 누르면 더보기
+ 
+
+
+return (
     <>
       <div
         className="main-bg"
@@ -16,6 +22,20 @@ function FirstPage({shoes}) {
       />
       <div className="container">
         <Row>
+
+          {/* 버튼 누르면 더 보이기 */}
+          <button onClick={()=>{
+            axios.get('https://codingapple1.github.io/shop/data2.json')
+            .then((result)=>{{
+              let copy=[...shoes,...result.data];
+              setShoes(copy);
+              }
+
+            })
+          }}>버튼</button>
+          
+        
+
           {shoes.map(function (a, index) {
             const i = index + 1;
             return (
