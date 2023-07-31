@@ -6,6 +6,7 @@ import data from './data';
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom';
 import FirstPage from './pages/FirstPage';
 import AboutPage from './pages/AboutPage';
+import Cart from './pages/Cart';
 
 function App() {
   const publicUrl = process.env.PUBLIC_URL; // 프로덕션 환경에서 정적 파일을 로드하기 위한 변수
@@ -48,6 +49,8 @@ function App() {
   
   <Route path="/detail/:id" element={<AboutPage shoes={shoes} />} />
   {/* <Route path="/*" element={<div>없는 페이지야</div>} /> */}
+  <Route path="/cart" element={<Cart/>}/>
+
 </Routes>
 
     </div>
