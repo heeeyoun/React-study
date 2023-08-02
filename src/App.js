@@ -34,6 +34,7 @@ function App() {
           
            
               <Nav.Link onClick={()=>{navigate('/events')}}>Events</Nav.Link>
+              <Nav.Link onClick={()=>{navigate('/cart')}}>Cart</Nav.Link>
             
           </Nav>
         </Container>
