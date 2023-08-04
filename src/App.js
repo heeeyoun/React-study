@@ -48,7 +48,7 @@ function App() {
     <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
   </Route>
   
-  <Route path="/detail/:id" element={<AboutPage shoes={shoes} />} />
+  <Route path="/products/:id" element={<AboutPage shoes={shoes} />} />
   {/* <Route path="/*" element={<div>없는 페이지야</div>} /> */}
   <Route path="/cart" element={<Cart/>}/>
 

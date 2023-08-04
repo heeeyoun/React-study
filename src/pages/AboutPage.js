@@ -3,6 +3,8 @@ import  Styled, { isStyledComponent } from "styled-components";
 import { useParams } from "react-router-dom";
 import { Nav } from 'react-bootstrap';
 import '../About.css';
+import { addProducts } from "../store";
+import { useDispatch } from "react-redux";
 function AboutPage(props){
     let {id}=useParams();
     let founded =props.shoes.find((x)=> x.id == id)
@@ -14,6 +16,8 @@ function AboutPage(props){
     const[tap,setTap]=useState(0);
 
     const [fade,setFade]=useState('');
+
+    const dispatch=useDispatch();
 
     useEffect(()=>{
       setTimeout(()=>{setFade('end')},10)
@@ -48,7 +52,9 @@ function AboutPage(props){
       <p>{props.shoes[id].price}</p>
 
       {/* 숫자만 입력하고 나머지는 경고띄우는 입력창 만들기 */}
-      <button className="btn btn-danger">주문하기</button> 
+      <button className="btn btn-danger" onClick={()=>{
+        dispatch(addProducts({id : 2, name : founded.title, count : 1}))
+      }}>주문하기</button> 
       <input onChange={(e)=>{setWrite(e.target.value)}}></input>
       <p>{write}</p>
     </div>

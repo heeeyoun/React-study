@@ -5,20 +5,34 @@ let cart=createSlice({
   initialState:[
     {id : 0, name : 'White and Black', count : 2},
     {id : 2, name : 'Grey Yordan', count : 1}
-  ]
-})
-
-let user =createSlice({
-  name:'user',
-  initialState:'kim',
+  ],
   reducers:{
-    changeName(state){
-      return 'john'+ state
+    countAdd(state,action){
+      let number = state.findIndex((a)=>{return a.id === action.payload});
+      state[number].count++
+    },
+    addProducts(state,action){
+      state.push(action.payload)
     }
   }
 })
+export let {countAdd,addProducts}=cart.actions;
 
-export let {changeName}=user.actions
+let user =createSlice({
+  name:'user',
+  initialState:{name : 'kim', age : 20},
+  reducers:{
+    changeName(state){
+      state.name = 'park'
+    },
+    increase(state,action){
+      state.age += action.payload;
+    }
+    
+  }
+})
+
+export let {changeName,increase}=user.actions
 export default configureStore({
   reducer:{
     cart:cart.reducer,
